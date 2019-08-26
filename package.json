@@ -1,0 +1,26 @@
+{
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3",
+    "typescript": "^3.5.3"
+  },
+  "name": "typescript-web-framework",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {},
+  "scripts": {
+    "dev": "parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorchaplin/typescript-web-framework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorchaplin/typescript-web-framework/issues"
+  },
+  "homepage": "https://github.com/victorchaplin/typescript-web-framework#readme"
+}

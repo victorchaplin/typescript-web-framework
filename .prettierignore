@@ -1,0 +1,9 @@
+# compiled output
+/build
+/dist
+/tmp
+/out-tsc
+/.cache
+
+# dependencies
+/node_modules
