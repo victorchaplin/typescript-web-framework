@@ -1,8 +1,8 @@
-type Callback = () => void
+import { Eventing } from "./Eventing"
 
 export class User {
+  events = new Eventing()
   private userData: UserData
-  events: {[key: string]: Callback[]} = {}
 
   constructor(userData: UserData) {
     this.userData = userData
@@ -14,23 +14,5 @@ export class User {
 
   set(update: UserData): void {
     Object.assign(this.userData, update)
-  }
-
-  on(eventName: string, callback: Callback): void {
-    const handlers = this.events[eventName] || []
-    handlers.push(callback)
-    this.events[eventName] = handlers
-  }
-
-  trigger(eventName: string): void {
-    const handlers = this.events[eventName]
-
-    if (!handlers || handlers.length === 0) {
-      return
-    }
-
-    handlers.forEach(callback => {
-      callback()
-    })
   }
 }
