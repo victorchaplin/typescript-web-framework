@@ -2,13 +2,8 @@
   "users": [
     {
       "id": 1,
-      "name": "Mario",
-      "age": 20
-    },
-    {
-      "name": "new record",
-      "age": 999,
-      "id": 2
+      "name": "MEU NOME",
+      "age": 9999
     }
   ]
 }

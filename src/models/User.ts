@@ -13,4 +13,32 @@ export class User {
   constructor(attributes: UserData) {
     this.attributes = new Attributes<UserData>(attributes)
   }
+
+  get on() {
+    return this.events.on
+  }
+
+  get trigger() {
+    return this.events.trigger
+  }
+
+  get get() {
+    return this.attributes.get
+  }
+
+  set(update: UserData): void {
+    this.attributes.set(update)
+    this.events.trigger('change')
+  }
+
+  async fetch(): Promise<void> {
+    const id = this.attributes.get('id')
+
+    if(typeof id !== 'number') {
+      throw new Error('cannot fetch without an id')
+    }
+
+    const user = await this.sync.fetch(id)
+    this.set(user)
+  }
 }

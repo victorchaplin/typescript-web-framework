@@ -8,11 +8,11 @@ export class Sync<T extends HasId> {
     this.rootUrl = rootUrl
   }
 
-  fetch(id: number): Promise<void> {
+  fetch(id: number): Promise<T> {
     return Axios.get(`${this.rootUrl}/${id}`)
   }
 
-  save(data: T): Promise<void> {
+  save(data: T): Promise<T> {
     const {id} = data
 
     if (id) {
