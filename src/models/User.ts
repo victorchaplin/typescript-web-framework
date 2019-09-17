@@ -1,18 +1,16 @@
 import { Eventing } from "./Eventing"
+import { Sync } from "./Sync"
+import { Attributes } from "./Attributes"
+import { UserData } from "./UserData"
+
+const rootUrl = 'http://localhost:3000/users'
 
 export class User {
   events = new Eventing()
-  private userData: UserData
+  sync = new Sync<UserData>(rootUrl)
+  attributes: Attributes<UserData>
 
-  constructor(userData: UserData) {
-    this.userData = userData
-  }
-
-  get(propName: string): string | number {
-    return this.userData[propName]
-  }
-
-  set(update: UserData): void {
-    Object.assign(this.userData, update)
+  constructor(attributes: UserData) {
+    this.attributes = new Attributes<UserData>(attributes)
   }
 }

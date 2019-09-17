@@ -1,4 +1,5 @@
 import Axios from "axios"
+import { HasId } from "./HasId"
 
 export class Sync<T extends HasId> {
   rootUrl: string

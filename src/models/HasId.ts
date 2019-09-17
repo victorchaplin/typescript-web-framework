@@ -1,3 +1,3 @@
-interface HasId {
-  id: number
+export interface HasId {
+  id?: number
 }
