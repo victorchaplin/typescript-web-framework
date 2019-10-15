@@ -1,44 +1,44 @@
-import { Eventing } from "./Eventing"
-import { Sync } from "./Sync"
-import { Attributes } from "./Attributes"
-import { UserData } from "./UserData"
+import { Eventing } from './Eventing';
+import { Sync } from './Sync';
+import { Attributes } from './Attributes';
+import { UserData } from './UserData';
 
-const rootUrl = 'http://localhost:3000/users'
+const rootUrl = 'http://localhost:3000/users';
 
 export class User {
-  events = new Eventing()
-  sync = new Sync<UserData>(rootUrl)
-  attributes: Attributes<UserData>
+  events = new Eventing();
+  sync = new Sync<UserData>(rootUrl);
+  attributes: Attributes<UserData>;
 
   constructor(attributes: UserData) {
-    this.attributes = new Attributes<UserData>(attributes)
+    this.attributes = new Attributes<UserData>(attributes);
   }
 
   get on() {
-    return this.events.on
+    return this.events.on;
   }
 
   get trigger() {
-    return this.events.trigger
+    return this.events.trigger;
   }
 
   get get() {
-    return this.attributes.get
+    return this.attributes.get;
   }
 
   set(update: UserData): void {
-    this.attributes.set(update)
-    this.events.trigger('change')
+    this.attributes.set(update);
+    this.events.trigger('change');
   }
 
   async fetch(): Promise<void> {
-    const id = this.attributes.get('id')
+    const id = this.attributes.get('id');
 
     if (typeof id !== 'number') {
-      throw new Error('Cannot fetch without an id')
+      throw new Error('Cannot fetch without an id');
     }
 
-    const user = await this.sync.fetch(id)
-    this.set(user)
+    const user = await this.sync.fetch(id);
+    this.set(user);
   }
 }
