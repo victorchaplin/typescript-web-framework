@@ -34,8 +34,8 @@ export class User {
   async fetch(): Promise<void> {
     const id = this.attributes.get('id')
 
-    if(typeof id !== 'number') {
-      throw new Error('cannot fetch without an id')
+    if (typeof id !== 'number') {
+      throw new Error('Cannot fetch without an id')
     }
 
     const user = await this.sync.fetch(id)

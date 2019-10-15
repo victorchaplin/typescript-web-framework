@@ -8,8 +8,10 @@ export class Sync<T extends HasId> {
     this.rootUrl = rootUrl
   }
 
-  fetch(id: number): Promise<T> {
-    return Axios.get(`${this.rootUrl}/${id}`)
+  async fetch(id: number): Promise<T> {
+    const {data} = await Axios.get(`${this.rootUrl}/${id}`)
+
+    return data
   }
 
   save(data: T): Promise<T> {
