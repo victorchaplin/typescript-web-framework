@@ -1,7 +1,7 @@
 import Axios from 'axios';
-import { HasId } from './HasId';
+import { HasId } from '../types/HasId';
 
-export class Sync<T extends HasId> {
+export class ApiSync<T extends HasId> {
   rootUrl: string;
 
   constructor(rootUrl: string) {
