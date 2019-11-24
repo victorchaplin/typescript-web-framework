@@ -15,4 +15,9 @@ export class User extends Model<UserData> {
   constructor(data: UserData) {
     super(new Attributes<UserData>(data), new ApiSync<UserData>(rootUrl), new Eventing());
   }
+
+  setRandomAge(): void {
+    const age = Math.round(Math.random() * 100)
+    this.set({ age })
+  }
 }
