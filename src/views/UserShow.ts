@@ -1,6 +1,6 @@
-import { View } from "./View";
-import { User } from "../models/User";
-import { UserData } from "../types/UserData";
+import { View } from './View';
+import { User } from '../models/User';
+import { UserData } from '../types/UserData';
 
 export class UserShow extends View<User, UserData> {
   template(): string {
@@ -10,6 +10,6 @@ export class UserShow extends View<User, UserData> {
         <div>User Name: ${this.model.get('name')}</div>
         <div>User Age: ${this.model.get('age')}</div>
       </div>
-    `
+    `;
   }
 }
